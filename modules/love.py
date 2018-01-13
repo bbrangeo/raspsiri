@@ -13,10 +13,10 @@ pixel_heart = [
 O, O, O, O, O, O, O, O,
 O, P, P, O, O, P, P, O,
 P, P, P, P, P, P, P, P,
-P, P, O, O, O, O, O, O,
-O, O, O, O, O, O, O, O,
-O, O, O, O, O, O, O, O,
-O, O, O, O, O, O, O, O,
+P, P, P, P, P, P, P, P,
+O, P, P, P, P, P, P, O,
+O, O, P, P, P, P, O, O,
+O, O, O, P, P, O, O, O,
 O, O, O, O, O, O, O, O
 ]
 
@@ -29,5 +29,6 @@ commandWords = ["love"]
 def execute(command):
     #Write anything you want to be executed when the commandWords are heard
     #The 'command' parameter is the command you speak
+    sense.clear_sense()
     sense.set_pixels(pixel_heart)
     return
