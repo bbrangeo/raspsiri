@@ -5,16 +5,6 @@ from sense_hat import SenseHat
 
 sense = SenseHat()
 
-# Connect to Last FM network
-network = pylast.LastFMNetwork(api_key=API_KEY, api_secret=API_SECRET,
-                               username=username, password_hash=password_hash)
-
-
-# Get current track
-track = network.get_user(username).get_now_playing()
-
-# Love current track
-track.love()
 
 # No color
 O = (0,0,0)
@@ -41,8 +31,14 @@ moduleName = "like"
 commandWords = ["like song"]
 
 def execute(command):
+    # Connect to Last FM network
+    network = pylast.LastFMNetwork(api_key=API_KEY, api_secret=API_SECRET,
+                                   username=username, password_hash=password_hash)
+    track = network.get_user(username).get_now_playing()
     print track
     print command
+    # Love current track
+    track.love()
     sense.clear()
     sense.set_pixels(pixel_heart)
     return
